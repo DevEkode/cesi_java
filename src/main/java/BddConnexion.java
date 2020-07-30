@@ -10,16 +10,16 @@ public class BddConnexion {
     private String userbdd;
     private String passwordbdd;
     private String Urlbdd;
-    private String cheminFichierProperties;
     private PreparedStatement ps;
 
-    public BddConnexion(String cheminFichierProperties) throws IOException, SQLException {
-        this.cheminFichierProperties = cheminFichierProperties;
+    public BddConnexion() throws IOException, SQLException {
     }
 
     public void seConnecter() throws SQLException, IOException {
         Properties props = new Properties();
-        props.load(new FileInputStream(cheminFichierProperties));
+        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+        String appConfigPath = rootPath + "db.properties";
+        props.load(new FileInputStream(appConfigPath));
         userbdd = props.getProperty("user");
         passwordbdd = props.getProperty("password");
         Urlbdd = props.getProperty("dburl");

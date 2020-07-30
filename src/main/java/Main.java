@@ -12,7 +12,7 @@ public class Main extends Application {
 
 
         try {
-            BddConnexion maCo = new BddConnexion("C:\\Users\\guill\\IdeaProjects\\cesi_java\\src\\main\\resources\\db.properties");
+            BddConnexion maCo = new BddConnexion();
             maCo.seConnecter();
             Classroom classroom = new Classroom(maCo);
             Person person = new Person(maCo);
