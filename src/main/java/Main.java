@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("modifierEtudiant.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 720, 480));
         primaryStage.show();
