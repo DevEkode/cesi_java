@@ -1,0 +1,3 @@
+user=root
+password=
+dburl=jdbc:mysql://localhost:3308/cesifx?useSSL=false&serverTimezone=UTC

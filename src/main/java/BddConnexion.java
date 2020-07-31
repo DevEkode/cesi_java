@@ -29,11 +29,4 @@ public class BddConnexion {
     public Connection getMaConnexion() {
         return myConnexion;
     }
-
-
-    public void eraseAll() throws SQLException {
-        String query = "DELETE FROM classroom";
-        Statement st = myConnexion.createStatement();
-        st.executeUpdate(query);
-    }
 }
