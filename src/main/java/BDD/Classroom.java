@@ -27,6 +27,14 @@ public class Classroom {
         return st.executeQuery();
     }
 
+    public ResultSet showClassroom(int id) throws SQLException  {
+        String query = "SELECT * FROM classroom WHERE idClassroom = ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,id);
+        return st.executeQuery();
+    }
+
     public ResultSet showClassroom(String name) throws SQLException  {
         String query = "SELECT * FROM classroom WHERE classname = ?";
 
@@ -43,14 +51,22 @@ public class Classroom {
         return st.executeQuery(query);
     }
 
-    public void updateClassroom(Integer id, Integer nbEleve, String name) throws SQLException {
-        String query = "UPDATE classroom SET nbEleve = ?, classname = ? WHERE idClassroom = ?";
+    public ResultSet getAllLike(String like) throws SQLException {
+        String query = "SELECT * FROM classroom WHERE classname LIKE ?";
+
+        PreparedStatement ps = this.myConnexion.prepareStatement(query);
+        ps.setString(1,like);
+
+        return ps.executeQuery();
+    }
+
+    public void updateClassroom(Integer id,String name) throws SQLException {
+        String query = "UPDATE classroom SET classname = ? WHERE idClassroom = ?";
 
         PreparedStatement ps = myConnexion.prepareStatement(query);
 
-        ps.setInt(1,nbEleve);
-        ps.setString(2,name);
-        ps.setInt(3,id);
+        ps.setString(1,name);
+        ps.setInt(2,id);
         ps.execute();
     }
 

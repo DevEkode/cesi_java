@@ -110,6 +110,7 @@ public class ControllerModifierEtudiant {
 
         // Delete from database
         this.person.DeletePerson(this.current_id);
+        this.current_id = -1;
 
         TxtFld_firstname.setText("");
         TxtFld_lastname.setText("");
