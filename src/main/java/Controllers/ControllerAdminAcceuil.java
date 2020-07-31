@@ -37,7 +37,7 @@ public class ControllerAdminAcceuil {
     public void redirectToPage(String fxml) throws IOException {
         Parent pane = FXMLLoader.load(getClass().getResource(fxml));
 
-        Scene scene = new Scene( pane );
+        Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
     }
 
@@ -59,7 +59,7 @@ public class ControllerAdminAcceuil {
 
     public void redirectToAddClass() throws IOException {
         ControllerAdminClassAdd.primaryStage = primaryStage;
-        this.redirectToPage("../adminClassAdd.fxml");
+        this.redirectToPage("/adminClassAdd.fxml");
     }
 
     public void redirectToEditClass() throws IOException {
