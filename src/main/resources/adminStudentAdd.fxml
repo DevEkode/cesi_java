@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerAdminStudentAdd">
+   <children>
+      <Button fx:id="btn_logout" layoutX="608.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onLogoutClick" text="Se déconnecter" textFill="RED" />
+      <TextField fx:id="txt_nom" layoutX="314.0" layoutY="106.0" onKeyPressed="#onTextUpdate">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txt_prenom" layoutX="314.0" layoutY="174.0" onKeyPressed="#onTextUpdate">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txt_pass" layoutX="314.0" layoutY="243.0" onKeyPressed="#onTextUpdate" prefHeight="51.0" prefWidth="298.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </PasswordField>
+      <ChoiceBox fx:id="cb_class" layoutX="313.0" layoutY="319.0" prefWidth="150.0" />
+      <Text layoutX="133.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom étudiant :">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="218.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Classe :">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="108.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom étudiant :">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn_confirm" defaultButton="true" layoutX="262.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#onValiderClick" text="Valider">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_cancel" cancelButton="true" layoutX="370.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#onAnnulerClick" text="Annuler">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="47.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Création d'un nouvel élève">
+         <font>
+            <Font name="System Italic" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="141.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="mot de passe :">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt_feedback" layoutX="16.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" wrappingWidth="687.13671875" />
+   </children>
+</AnchorPane>
