@@ -100,4 +100,6 @@ public class ControllerPageConnection {
         this.redirectToPage("../pageEtudiant.fxml");
     }
 
+
+
 }

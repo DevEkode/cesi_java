@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerAdminClassAdd">
    <children>
-      <Button fx:id="btn_logout" layoutX="608.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#redirectToConnexionPage" text="Se déconnecter" />
+      <Button fx:id="btn_logout" layoutX="608.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#onLogout" text="Se déconnecter" textFill="RED" />
       <Text layoutX="47.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Création d'une nouvelle classe">
          <font>
             <Font name="System Italic" size="24.0" />
@@ -24,20 +24,15 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btn_confirm" defaultButton="true" layoutX="262.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#onButtonValidClick" text="Valider">
+      <Button fx:id="btn_confirm" defaultButton="true" layoutX="262.0" layoutY="380.0" mnemonicParsing="false" text="Valider">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btn_cancel" cancelButton="true" layoutX="370.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#redirectToHomeAdminPage" text="Annuler">
+      <Button fx:id="btn_cancel" cancelButton="true" layoutX="370.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#onAnnulerClick" text="Annuler">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Text fx:id="txt_feedback" fill="#3cc62f" layoutX="360.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouvelle classe créer !" visible="false">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>
