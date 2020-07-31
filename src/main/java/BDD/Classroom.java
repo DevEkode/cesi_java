@@ -23,7 +23,6 @@ public class Classroom {
     public void showClassroom() {
         String query = "SELECT classname FROM classroom";
 
-
         try {
             Statement st = this.myConnexion.createStatement();
             ResultSet rs = st.executeQuery(query);
@@ -35,6 +34,14 @@ public class Classroom {
             e.printStackTrace();
         }
 
+    }
+
+    public ResultSet getAll() throws SQLException {
+        String query = "SELECT * FROM classroom";
+
+        Statement st = this.myConnexion.createStatement();
+
+        return st.executeQuery(query);
     }
 
     public void updateClassroom(Integer id, Integer nbEleve, String name) throws SQLException {
