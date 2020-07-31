@@ -24,7 +24,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btn_confirm" defaultButton="true" layoutX="262.0" layoutY="380.0" mnemonicParsing="false" text="Valider">
+      <Button fx:id="btn_confirm" defaultButton="true" layoutX="262.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#onButtonValidClick" text="Valider">
          <font>
             <Font size="18.0" />
          </font>
@@ -34,5 +34,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Text fx:id="txt_feedback" layoutX="63.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" visible="false" wrappingWidth="594.13671875" />
    </children>
 </AnchorPane>

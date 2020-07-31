@@ -71,6 +71,15 @@ public class ControllerAdminAcceuil {
         this.redirectToPage("../pageConnection.fxml");
     }
 
+    @FXML
+    public void onLogout() throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource("/pageConnection.fxml"));
+        ControllerPageConnection.primaryStage = primaryStage;
+
+        Scene scene = new Scene( pane );
+        primaryStage.setScene(scene);
+    }
+
 
 
 
