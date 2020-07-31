@@ -10,6 +10,9 @@ import Models.Model_pageEtudiant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -45,6 +48,15 @@ public class ControllerPageEtudiant {
     ListView<Model_pageEtudiant> liste_etudiants;
     private Classroom classroom;
 
+    @FXML
+    public void onLogout() throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource("/pageConnection.fxml"));
+        ControllerPageConnection.primaryStage = primaryStage;
+
+        Scene scene = new Scene( pane );
+        primaryStage.setScene(scene);
+    }
+
 
     public void initialize() throws IOException, SQLException {
         ArrayList<Model_pageEtudiant> oblist =  new ArrayList<>();
@@ -77,15 +89,20 @@ public class ControllerPageEtudiant {
             liste_etudiants.setItems(maListeModel);
 
             ResultSet XT = this.person.showPerson(personId);
-
+            int Classroom = -1;
             while(XT.next()){
                 String firstName = XT.getString("firstname");
                 String lastName =  XT.getString("lastname");
+                Classroom = XT.getInt("idClassroom");
                 Txt_prenom.setText(firstName);
                 Txt_nom.setText(lastName);
             }
 
-
+            ResultSet ST = this.classroom.showClassroom(Classroom);
+            while (ST.next()){
+                String className = ST.getString("classname");
+                Txt_promotion.setText(className);
+            }
 
     }
 

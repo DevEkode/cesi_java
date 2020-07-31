@@ -11,10 +11,10 @@
 
 <AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerModifierEtudiant">
    <children>
-      <Button fx:id="btn_logout" layoutX="608.0" layoutY="18.0" mnemonicParsing="false" text="Se déconnecter" />
+      <Button fx:id="btn_logout" layoutX="608.0" layoutY="18.0" mnemonicParsing="false" onMouseClicked="#onLogout" text="Se déconnecter" textFill="RED" />
       <Accordion layoutX="233.0" layoutY="115.0" />
       <ListView fx:id="list_liste_etudiants" layoutX="49.0" layoutY="126.0" onMouseClicked="#onStudentSelect" prefHeight="289.0" prefWidth="200.0" />
-      <TextField fx:id="TxtFld_search" layoutX="48.0" layoutY="85.0" prefHeight="25.0" prefWidth="200.0" promptText="Rechercher..." />
+      <TextField fx:id="TxtFld_search" layoutX="48.0" layoutY="85.0" onKeyPressed="#onUpdateSearch" prefHeight="25.0" prefWidth="200.0" promptText="Rechercher..." />
       <TextField fx:id="TxtFld_lastname" layoutX="428.0" layoutY="193.0" onKeyPressed="#onInputUpdate" />
       <Text layoutX="384.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom">
          <font>
@@ -31,7 +31,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="btn_delete" layoutX="458.0" layoutY="375.0" mnemonicParsing="false" text="Supprimer">
+      <Button fx:id="btn_delete" layoutX="458.0" layoutY="375.0" mnemonicParsing="false" onMouseClicked="#onSupprimerClick" text="Supprimer">
          <font>
             <Font size="18.0" />
          </font></Button>
