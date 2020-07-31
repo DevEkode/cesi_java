@@ -1,5 +1,7 @@
 package BDD;
 
+import Enums.RoleId;
+
 import java.sql.*;
 
 public class Person {
@@ -25,7 +27,7 @@ public class Person {
     }
 
     public ResultSet showPerson(Integer id) throws SQLException {
-        String query = "SELECT * FROM person WHERE id = ?";
+        String query = "SELECT * FROM person WHERE idPerson = ?";
 
         PreparedStatement st = this.myConnexion.prepareStatement(query);
         st.setInt(1,id);
@@ -42,6 +44,15 @@ public class Person {
         return st.executeQuery();
     }
 
+    public ResultSet showRolePerson(Integer roleId) throws SQLException {
+        String query = "SELECT * FROM person WHERE idRole = ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,roleId);
+
+        return st.executeQuery();
+    }
+
     public void updatePerson(Integer idPerson, String firstname, String lastname, String login, String password, Integer idClassroom,Integer idRole) throws SQLException {
         String query = "UPDATE person SET firstname = ?, lastname = ?,login = ?,password = ?, idClassroom = ?, idRole = ? WHERE idPerson = ?";
 
@@ -54,6 +65,17 @@ public class Person {
         ps.setInt(5,idClassroom);
         ps.setInt(6,idRole);
         ps.setInt(7,idPerson);
+        ps.execute();
+    }
+
+    public void updatePerson(Integer idPerson,String firstname, String lastname) throws SQLException {
+        String query = "UPDATE person SET firstname = ?, lastname = ? WHERE idPerson = ?";
+
+        PreparedStatement ps = this.myConnexion.prepareStatement(query);
+        ps.setString(1,firstname);
+        ps.setString(2,lastname);
+        ps.setInt(3,idPerson);
+
         ps.execute();
     }
 
