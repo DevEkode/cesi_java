@@ -47,10 +47,6 @@ public class ControllerPageEtudiant {
 
         // ResultSet rs = Connection.createStatement().executeQuery("select firstname,lastname,classe FROM person ");
 
-        col_prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        col_classe.setCellValueFactory(new PropertyValueFactory<>("classe"));
-
     }
 
 

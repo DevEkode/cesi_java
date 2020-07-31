@@ -88,6 +88,46 @@ public class ControllerModifierEtudiant {
     }
 
     @FXML
+    public void onSupprimerClick() throws SQLException {
+        // Check if the student still exist in database
+        ResultSet rs = this.person.showPerson(this.current_id);
+
+        String firstname = "", lastname = "";
+        while(rs.next()){
+            firstname = rs.getString("firstname");
+            lastname = rs.getString("lastname");
+        }
+
+        if(firstname.equals("") || lastname.equals("")){
+            // Does not exists
+            txt_feedback.setText("Impossible de trouver l'utilisateur dans la base de donnée :(");
+            txt_feedback.setFill(Color.RED);
+            txt_feedback.setVisible(true);
+
+            this.populateStudentList();
+            return;
+        }
+
+        // Delete from database
+        this.person.DeletePerson(this.current_id);
+
+        TxtFld_firstname.setText("");
+        TxtFld_lastname.setText("");
+
+        txt_feedback.setText("Étudiant "+firstname+" "+lastname+" supprimé !");
+        txt_feedback.setFill(Color.GREEN);
+        txt_feedback.setVisible(true);
+
+        this.populateStudentList();
+    }
+
+    @FXML
+    public void onUpdateSearch() throws SQLException {
+        String search = TxtFld_search.getText();
+        populateStudentList(search);
+    }
+
+    @FXML
     public void onInputUpdate(){
         txt_feedback.setVisible(false);
     }
@@ -110,9 +150,14 @@ public class ControllerModifierEtudiant {
         primaryStage.setScene(scene);
     }
 
-    private void populateStudentList() throws SQLException {
+    private void populateStudentList(String search) throws SQLException {
         // Get all students
-        ResultSet rs = this.person.showRolePerson(RoleId.ETUDIANT);
+        ResultSet rs;
+        if(search.equals("")){
+            rs = this.person.showRolePerson(RoleId.ETUDIANT);
+        } else{
+            rs = this.person.showRolePersonLoginLike(RoleId.ETUDIANT,'%'+search+'%');
+        }
 
         ArrayList<PersonItem> personItems = new ArrayList<>();
         while(rs.next()){
@@ -121,6 +166,10 @@ public class ControllerModifierEtudiant {
 
         ObservableList<PersonItem> observableList = FXCollections.observableList(personItems);
         list_liste_etudiants.setItems(observableList);
+    }
+
+    private void populateStudentList() throws SQLException {
+        populateStudentList("");
     }
 
 
