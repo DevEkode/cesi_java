@@ -19,23 +19,18 @@ public class Model_pageEtudiant {
         this.prenom = prenom;
     }
 
-    public String getClasse() {
-        return classe;
-    }
 
-    public void setClasse(String classe) {
-        this.classe = classe;
-    }
+    String nom,prenom;
 
-    String nom,prenom,classe;
-
-    public Model_pageEtudiant(String nom, String prenom, String classe) {
+    public Model_pageEtudiant(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;
-        this.classe = classe;
+
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return this.getNom()+" "+this.getPrenom();
+    }
 }

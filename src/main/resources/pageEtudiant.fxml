@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
@@ -11,19 +10,13 @@
       <Text layoutX="28.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etudiant : Profil" />
       <Button fx:id="btn_logout" layoutX="595.0" layoutY="23.0" mnemonicParsing="false" text="Déconnecter" textFill="RED" />
       <Text layoutX="28.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom : " />
-      <Text fx:id="Txt_nom" layoutX="74.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ Nom étudiant ]" />
-      <Text fx:id="Txt_promotion" layoutX="513.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ Promotion étudiant ]" />
+      <Text fx:id="Txt_nom" layoutX="74.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+      <Text fx:id="Txt_promotion" layoutX="513.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
       <Text layoutX="28.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des étudiants" />
+      <ListView fx:id="liste_etudiants" layoutX="28.0" layoutY="230.0" prefHeight="200.0" prefWidth="642.0" />
       <Text layoutX="212.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom : " />
-      <Text fx:id="Txt_prenom" layoutX="268.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ Prenom étudiant ]" />
+      <Text fx:id="Txt_prenom" layoutX="268.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
       <Text layoutX="438.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promotion : " />
-      <TableView fx:id="Table_liste_etudiants" layoutX="28.0" layoutY="230.0" prefHeight="223.0" prefWidth="470.0">
-        <columns>
-          <TableColumn fx:id="col_prenom" prefWidth="150.39999389648438" text="Prenom" />
-          <TableColumn fx:id="col_nom" prefWidth="148.79998779296875" text="Nom" />
-            <TableColumn fx:id="col_classe" prefWidth="170.39999999999998" text="Classe" />
-        </columns>
-      </TableView>
     
    </children>
 </AnchorPane>

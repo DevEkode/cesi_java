@@ -44,6 +44,33 @@ public class Person {
         return st.executeQuery();
     }
 
+    public ResultSet showFirstName(int firstname) throws SQLException {
+        String query = "SELECT * FROM person WHERE idPerson = ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,firstname);
+
+        return st.executeQuery();
+    }
+
+    public ResultSet showLastName(int lastname) throws SQLException {
+        String query = "SELECT LastName FROM person WHERE idPerson = ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1, lastname);
+
+        return st.executeQuery();
+    }
+
+    public ResultSet showClasse(int idClassroom) throws SQLException {
+        String query = "SELECT idClassroom FROM person";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,idClassroom);
+
+        return st.executeQuery();
+    }
+
     public ResultSet showRolePerson(Integer roleId) throws SQLException {
         String query = "SELECT * FROM person WHERE idRole = ?";
 
@@ -52,6 +79,18 @@ public class Person {
 
         return st.executeQuery();
     }
+
+    public ResultSet showRolePersonClass(Integer idRole, Integer idClassroom) throws SQLException {
+        String query = "SELECT * FROM person " +
+                "WHERE idClassroom = ? AND idRole = ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,idClassroom);
+        st.setInt(2,idRole);
+
+        return st.executeQuery();
+    }
+
 
     public ResultSet showRolePersonLoginLike(Integer RoleId,String like) throws SQLException {
         String query = "SELECT * FROM person WHERE idRole = ? AND login LIKE ?";
