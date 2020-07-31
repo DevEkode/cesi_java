@@ -66,6 +66,11 @@ public class ControllerAdminAcceuil {
         ControllerAdminClassEdit.primaryStage = primaryStage;
         this.redirectToPage("../adminClassEdit.fxml");
     }
+    public void redirectToConnexionPage() throws IOException {
+        ControllerPageConnection.primaryStage = primaryStage;
+        this.redirectToPage("../pageConnection.fxml");
+    }
+
 
 
 

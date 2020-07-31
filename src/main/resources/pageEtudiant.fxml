@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerPageEtudiant">
    <children>
       <Text layoutX="28.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etudiant : Profil" />
-      <Button fx:id="btn_logout" layoutX="595.0" layoutY="23.0" mnemonicParsing="false" text="Déconnecter" />
+      <Button fx:id="btn_logout" layoutX="595.0" layoutY="23.0" mnemonicParsing="false" text="Déconnecter" textFill="RED" />
       <Text layoutX="28.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom : " />
       <Text fx:id="Txt_nom" layoutX="74.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ Nom étudiant ]" />
       <Text fx:id="Txt_promotion" layoutX="513.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[ Promotion étudiant ]" />

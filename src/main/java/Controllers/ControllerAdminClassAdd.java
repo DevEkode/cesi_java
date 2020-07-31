@@ -67,18 +67,21 @@ public class ControllerAdminClassAdd {
         txt_feedback.setVisible(true);
     }
 
-    public void redirectToPage(String fxml) throws IOException {
-        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
+    @FXML
+    public void onLogout() throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource("/pageConnection.fxml"));
+        ControllerPageConnection.primaryStage = primaryStage;
 
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene( pane );
         primaryStage.setScene(scene);
     }
-    public void redirectToConnexionPage() throws IOException {
-       ControllerPageConnection.primaryStage = primaryStage;
-        this.redirectToPage("../pageConnection.fxml");
-    }
-    public void redirectToHomeAdminPage() throws IOException {
+    @FXML
+    public void onAnnulerClick() throws IOException {
+        Parent pane = FXMLLoader.load(getClass().getResource("/adminAcceuil.fxml"));
         ControllerAdminAcceuil.primaryStage = primaryStage;
-        this.redirectToPage("../adminAcceuil.fxml");
+
+        Scene scene = new Scene( pane );
+        primaryStage.setScene(scene);
     }
+
 }
