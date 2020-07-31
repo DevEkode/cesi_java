@@ -2,6 +2,7 @@
 Réalisation d'une application de gestion de classes en JavaFX
 
 # Developers
+Groupe n°5 :
 * Alexis POUPELIN
 * Guillaume M'BALI
 * Mansour OZDAMIROV
