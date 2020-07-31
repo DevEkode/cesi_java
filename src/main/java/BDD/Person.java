@@ -53,6 +53,16 @@ public class Person {
         return st.executeQuery();
     }
 
+    public ResultSet showRolePersonLoginLike(Integer RoleId,String like) throws SQLException {
+        String query = "SELECT * FROM person WHERE idRole = ? AND login LIKE ?";
+
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,RoleId);
+        st.setString(2,like);
+
+        return st.executeQuery();
+    }
+
     public void updatePerson(Integer idPerson, String firstname, String lastname, String login, String password, Integer idClassroom,Integer idRole) throws SQLException {
         String query = "UPDATE person SET firstname = ?, lastname = ?,login = ?,password = ?, idClassroom = ?, idRole = ? WHERE idPerson = ?";
 
