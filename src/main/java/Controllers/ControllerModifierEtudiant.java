@@ -9,12 +9,18 @@ public class ControllerModifierEtudiant {
 
     @FXML
     Button btn_back;
+    @FXML
     Button btn_logout;
+    @FXML
     Button btn_modify;
+    @FXML
     Button btn_delete;
     ListView<String> list_liste_etudiants;
+    @FXML
     TextField TxtFld_search;
+    @FXML
     TextField TxtFld_firstname;
+    @FXML
     TextField TxtFld_lastname;
 
     @FXML

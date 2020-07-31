@@ -8,8 +8,11 @@ public class ControllerAdminClassAdd {
 
     @FXML
     Button btn_logout;
+    @FXML
     Button btn_confirm;
+    @FXML
     Button btn_cancel;
+    @FXML
     TextField txt_class_name;
 
     @FXML
