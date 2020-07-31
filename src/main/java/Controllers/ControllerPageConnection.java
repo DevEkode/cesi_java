@@ -19,6 +19,7 @@ public class ControllerPageConnection {
 
     public static Stage primaryStage;
 
+
     @FXML
     TextField TxtFld_login;
     @FXML
@@ -90,4 +91,5 @@ public class ControllerPageConnection {
         ControllerPageEtudiant.personId = person_id;
         this.redirectToPage("../pageEtudiant.fxml");
     }
+
 }

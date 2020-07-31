@@ -6,7 +6,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerAdminAcceuil">
    <children>
       <Button fx:id="btn_logout" layoutX="608.0" layoutY="14.0" mnemonicParsing="false" text="Se déconnecter" />
@@ -17,22 +16,22 @@
       </Text>
       <VBox layoutX="71.0" layoutY="132.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
-            <Button fx:id="btn_student_edit" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" prefWidth="250.0" text="Modifier étudiant">
+            <Button fx:id="btn_student_edit" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToEditStudent" prefWidth="250.0" text="Modifier étudiant">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btn_student_add" maxWidth="200.0" minWidth="250.0" mnemonicParsing="false" prefWidth="200.0" text="Ajouter étudiant">
+            <Button fx:id="btn_student_add" maxWidth="200.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToAddStudent" prefWidth="200.0" text="Ajouter étudiant">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btn_student_delete" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" prefWidth="250.0" text="Supprimer étudiant">
+            <Button fx:id="btn_student_delete" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToEditStudent" prefWidth="250.0" text="Supprimer étudiant">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btn_student_list" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" prefWidth="250.0" text="Liste étudiants">
+            <Button fx:id="btn_student_list" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToListStudent" prefWidth="250.0" text="Liste étudiants">
                <font>
                   <Font size="24.0" />
                </font>
@@ -41,17 +40,17 @@
       </VBox>
       <VBox layoutX="407.0" layoutY="132.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
          <children>
-            <Button fx:id="btn_class_create" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" prefWidth="250.0" text="Créer classe">
+            <Button fx:id="btn_class_create" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToAddClass" prefWidth="250.0" text="Créer classe">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btn_class_edit" maxWidth="200.0" minWidth="250.0" mnemonicParsing="false" prefWidth="200.0" text="Modifier classe">
+            <Button fx:id="btn_class_edit" maxWidth="200.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToEditClass" prefWidth="200.0" text="Modifier classe">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="btn_class_delete" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" prefWidth="250.0" text="Supprimer classe">
+            <Button fx:id="btn_class_delete" maxWidth="250.0" minWidth="250.0" mnemonicParsing="false" onMouseClicked="#redirectToEditClass" prefWidth="250.0" text="Supprimer classe">
                <font>
                   <Font size="24.0" />
                </font>
