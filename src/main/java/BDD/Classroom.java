@@ -11,29 +11,28 @@ public class Classroom {
         this.myConnexion = bdd.getMaConnexion();
     }
 
-    public void insertClassroom(Integer nbEleve, String classname) throws SQLException {
-        String query = "Insert into classroom (nbEleve,classname) values (?,?)";
+    public void insertClassroom(String classname) throws SQLException {
+        String query = "Insert into classroom (classname) values (?)";
         PreparedStatement ps = this.myConnexion.prepareStatement(query);
 
-        ps.setInt(1,nbEleve);
-        ps.setString(2,classname);
+        ps.setString(1,classname);
         ps.execute();
+
     }
 
-    public void showClassroom() {
-        String query = "SELECT classname FROM classroom";
+    public ResultSet showClassroom() throws SQLException  {
+        String query = "SELECT * FROM classroom";
 
-        try {
-            Statement st = this.myConnexion.createStatement();
-            ResultSet rs = st.executeQuery(query);
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        return st.executeQuery();
+    }
 
-            while (rs.next()) {
-                System.out.format("Name : %s\n", rs.getString("classname"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public ResultSet showClassroom(String name) throws SQLException  {
+        String query = "SELECT * FROM classroom WHERE classname = ?";
 
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setString(1,name);
+        return st.executeQuery();
     }
 
     public ResultSet getAll() throws SQLException {
