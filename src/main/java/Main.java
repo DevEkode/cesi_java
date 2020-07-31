@@ -17,7 +17,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("pageConnection.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("pageEtudiant.fxml"));
         ControllerPageConnection.primaryStage = primaryStage;
         primaryStage.setTitle("Application de gestion des classes");
         primaryStage.getIcons().add(new Image("/icon.png"));

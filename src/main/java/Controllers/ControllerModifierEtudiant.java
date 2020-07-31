@@ -31,8 +31,11 @@ public class ControllerModifierEtudiant {
 
     @FXML
     Button btn_back;
+    @FXML
     Button btn_logout;
+    @FXML
     Button btn_modify;
+    @FXML
     Button btn_delete;
     @FXML
     ListView<PersonItem> list_liste_etudiants;
