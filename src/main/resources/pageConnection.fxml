@@ -30,8 +30,9 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="TxtFld_login" layoutX="320.0" layoutY="191.0" />
-      <PasswordField fx:id="TxtFld_pass" layoutX="320.0" layoutY="240.0" />
+      <TextField fx:id="TxtFld_login" layoutX="320.0" layoutY="191.0" onKeyPressed="#onEditTextField" />
+      <PasswordField fx:id="TxtFld_pass" layoutX="320.0" layoutY="240.0" onKeyPressed="#onEditTextField" />
+      <Text fx:id="txt_error" fill="RED" layoutX="202.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur : cette combinaison login mot de passe est incorrecte" visible="false" />
    </children>
    <opaqueInsets>
       <Insets />

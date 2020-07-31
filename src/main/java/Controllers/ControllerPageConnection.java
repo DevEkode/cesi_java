@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,14 +19,16 @@ import java.sql.SQLException;
 public class ControllerPageConnection {
 
     public static Stage primaryStage;
+    private Person person;
 
     @FXML
     TextField TxtFld_login;
     @FXML
     TextField TxtFld_pass;
+    @FXML
     Button btn_connexion;
-
-    private Person person;
+    @FXML
+    Text txt_error;
 
     @FXML
     public void initialize() throws IOException, SQLException {
@@ -50,13 +53,18 @@ public class ControllerPageConnection {
             bdd_id = rs.getInt("idPerson");
         }
 
-        if(bdd_pass.equals(pass)){
+        if(bdd_pass != null && bdd_pass.equals(pass)){
             // OK
             redirectToPageRole(bdd_role,bdd_id);
         }else{
             // NOK
-            System.out.println("NOK");
+            txt_error.setVisible(true);
         }
+    }
+
+    @FXML
+    public void onEditTextField(){
+        txt_error.setVisible(false);
     }
 
     public void redirectToPageRole(int role,int person_id) throws IOException {
