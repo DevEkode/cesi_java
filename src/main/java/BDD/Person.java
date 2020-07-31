@@ -117,13 +117,14 @@ public class Person {
         ps.execute();
     }
 
-    public void updatePerson(Integer idPerson,String firstname, String lastname) throws SQLException {
-        String query = "UPDATE person SET firstname = ?, lastname = ? WHERE idPerson = ?";
+    public void updatePerson(Integer idPerson,String firstname, String lastname, int idClassroom) throws SQLException {
+        String query = "UPDATE person SET firstname = ?, lastname = ?, idClassroom = ? WHERE idPerson = ?";
 
         PreparedStatement ps = this.myConnexion.prepareStatement(query);
         ps.setString(1,firstname);
         ps.setString(2,lastname);
-        ps.setInt(3,idPerson);
+        ps.setInt(3,idClassroom);
+        ps.setInt(4,idPerson);
 
         ps.execute();
     }

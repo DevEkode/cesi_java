@@ -1,5 +1,7 @@
 package ListObjects;
 
+import BDD.Person;
+
 public class PersonItem {
 
     private int id;
@@ -27,7 +29,21 @@ public class PersonItem {
     }
 
     @Override
+    public int hashCode() {
+        return getId();
+    }
+
+    @Override
     public String toString() {
         return getLogin();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof PersonItem){
+            PersonItem p = (PersonItem) obj;
+            return p.getId() == this.getId();
+        }
+        return false;
     }
 }

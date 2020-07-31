@@ -1,8 +1,10 @@
 package Controllers;
 
 import BDD.BddConnexion;
+import BDD.Classroom;
 import BDD.Person;
 import Enums.RoleId;
+import ListObjects.Class;
 import ListObjects.PersonItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -26,6 +29,7 @@ public class ControllerModifierEtudiant {
 
     public static Stage primaryStage;
     private Person person;
+    private Classroom classroom;
     private int current_id;
 
 
@@ -47,12 +51,15 @@ public class ControllerModifierEtudiant {
     TextField TxtFld_lastname;
     @FXML
     Text txt_feedback;
+    @FXML
+    ComboBox<Class> cb_classe;
 
     @FXML
     public void initialize() throws IOException, SQLException {
         this.person = new Person(BddConnexion.getINSTANCE());
-
+        this.classroom = new Classroom(BddConnexion.getINSTANCE());
         populateStudentList();
+        populateClasseCombo();
     }
 
     @FXML
@@ -63,10 +70,20 @@ public class ControllerModifierEtudiant {
         // Load from database
         ResultSet rs = this.person.showPerson(personItem.getId());
 
+        int classroom_id = 0;
         while(rs.next()){
             TxtFld_firstname.setText(rs.getString("firstname"));
             TxtFld_lastname.setText(rs.getString("lastname"));
+            classroom_id = rs.getInt("idClassroom");
         }
+
+        rs = this.classroom.showClassroom(classroom_id);
+        String classroomName = "";
+        while(rs.next()){
+            classroomName = rs.getString("classname");
+        }
+
+        cb_classe.getSelectionModel().select(new Class(classroom_id,classroomName));
 
         // Save id of student being edited
         this.current_id = personItem.getId();
@@ -77,9 +94,10 @@ public class ControllerModifierEtudiant {
         // Get text field values
         String lastname = TxtFld_lastname.getText();
         String firstname = TxtFld_firstname.getText();
+        Class selected_class = cb_classe.getSelectionModel().getSelectedItem();
 
         // Update value in database
-        this.person.updatePerson(this.current_id,firstname,lastname);
+        this.person.updatePerson(this.current_id,firstname,lastname,selected_class.getId());
 
         // Show success messages
         txt_feedback.setText("Informations mises à jour !");
@@ -171,6 +189,18 @@ public class ControllerModifierEtudiant {
 
     private void populateStudentList() throws SQLException {
         populateStudentList("");
+    }
+
+    private void populateClasseCombo() throws SQLException {
+        ResultSet rs = this.classroom.getAll();
+
+        ArrayList<Class> classes = new ArrayList<>();
+        while(rs.next()){
+            classes.add(new Class(rs.getInt("idClassroom"),rs.getString("classname")));
+        }
+
+        ObservableList<Class> classObservableList = FXCollections.observableList(classes);
+        cb_classe.setItems(classObservableList);
     }
 
 
