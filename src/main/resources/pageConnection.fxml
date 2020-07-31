@@ -10,28 +10,42 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerPageConnection">
    <children>
-      <Text fill="#842e2e" layoutX="280.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connexion" textAlignment="CENTER">
+      <Text fill="#842e2e" layoutX="239.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connectez-vous" textAlignment="CENTER">
          <font>
             <Font size="34.0" />
          </font>
       </Text>
-      <Text layoutX="208.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login ">
+      <Text layoutX="273.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login ">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="130.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe">
+      <Text layoutX="195.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mot de passe">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="btn_connexion" layoutX="368.0" layoutY="288.0" mnemonicParsing="false" onMouseClicked="#onButtonConnexionClick" prefHeight="32.0" prefWidth="82.0" text="Valider" textFill="#2c7732">
+      <Button fx:id="btn_connexion" defaultButton="true" layoutX="319.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#onButtonConnexionClick" prefHeight="32.0" prefWidth="82.0" text="Valider">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="TxtFld_login" layoutX="320.0" layoutY="191.0" />
-      <PasswordField fx:id="TxtFld_pass" layoutX="320.0" layoutY="240.0" />
+      <TextField fx:id="TxtFld_login" layoutX="374.0" layoutY="203.0" onKeyPressed="#onEditTextField" />
+      <PasswordField fx:id="TxtFld_pass" layoutX="374.0" layoutY="252.0" onKeyPressed="#onEditTextField" />
+      <Text fx:id="txt_error" fill="RED" layoutX="202.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Erreur : cette combinaison login mot de passe est incorrecte" visible="false" />
+      <Text fill="#842e2e" layoutX="89.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Application de gestion des classes" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexis POUPELIN" />
+      <Text layoutX="14.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Guillaume M BALI" />
+      <Text layoutX="14.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mansour OZDAMIROV" />
+      <Text layoutX="14.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RIL 2019 - 2021">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
    <opaqueInsets>
       <Insets />
