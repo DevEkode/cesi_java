@@ -1,3 +1,5 @@
+package BDD;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.*;
@@ -5,12 +7,13 @@ import java.util.Properties;
 
 public class BddConnexion {
 
-
     private Connection myConnexion;
     private String userbdd;
     private String passwordbdd;
     private String Urlbdd;
     private PreparedStatement ps;
+
+    private static BddConnexion INSTANCE;
 
     public BddConnexion() throws IOException, SQLException {
     }
@@ -28,5 +31,13 @@ public class BddConnexion {
 
     public Connection getMaConnexion() {
         return myConnexion;
+    }
+
+    public static BddConnexion getINSTANCE() throws IOException, SQLException {
+        if(INSTANCE == null){
+            INSTANCE = new BddConnexion();
+            INSTANCE.seConnecter();
+        }
+        return INSTANCE;
     }
 }

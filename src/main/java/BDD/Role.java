@@ -1,3 +1,5 @@
+package BDD;
+
 import java.sql.*;
 
 public class Role {

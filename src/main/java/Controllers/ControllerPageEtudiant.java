@@ -4,9 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class ControllerPageEtudiant {
 
+    public static Stage primaryStage;
+    public static int personId;
 
     @FXML
     Text Txt_nom;

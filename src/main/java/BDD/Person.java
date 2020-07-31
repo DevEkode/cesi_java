@@ -1,11 +1,12 @@
+package BDD;
+
 import java.sql.*;
 
 public class Person {
 
-    private Connection myConnexion ;
+    private Connection myConnexion;
 
     public Person(BddConnexion bdd) {
-
         this.myConnexion = bdd.getMaConnexion();
     }
 
@@ -23,21 +24,22 @@ public class Person {
         ps.execute();
     }
 
-    public void showPerson() {
-        String query = "SELECT * FROM person";
+    public ResultSet showPerson(Integer id) throws SQLException {
+        String query = "SELECT * FROM person WHERE id = ?";
 
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setInt(1,id);
 
-        try {
-            Statement st = this.myConnexion.createStatement();
-            ResultSet rs = st.executeQuery(query);
+        return st.executeQuery();
+    }
 
-            while (rs.next()) {
-                System.out.format("Name : %s\n", rs.getString("firstname"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public ResultSet showPerson(String login) throws SQLException {
+        String query = "SELECT * FROM person WHERE login = ?";
 
+        PreparedStatement st = this.myConnexion.prepareStatement(query);
+        st.setString(1,login);
+
+        return st.executeQuery();
     }
 
     public void updatePerson(Integer idPerson, String firstname, String lastname, String login, String password, Integer idClassroom,Integer idRole) throws SQLException {
